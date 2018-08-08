@@ -1,0 +1,47 @@
+apply plugin: 'com.android.library'
+//apply plugin: 'com.github.dcendents.android-maven'
+//
+//apply plugin: 'maven'
+
+android {
+
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+
+    buildTypes {
+        debug {
+            testCoverageEnabled true
+        }
+    }
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:' + rootProject.ext.supportLibraryVersion
+    implementation 'com.android.support:design:' + rootProject.ext.supportLibraryVersion
+
+    testImplementation 'junit:junit:' + rootProject.ext.junitVersion
+
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test:rules:1.0.1'
+    androidTestImplementation 'org.mockito:mockito-core:2.7.1'
+    androidTestImplementation "com.google.dexmaker:dexmaker:1.2"
+    androidTestImplementation "com.google.dexmaker:dexmaker-mockito:1.2"
+}
+
+//uploadArchives {
+//    repositories.mavenDeployer {
+//        repository(url: 'http://git.e-horizon.ph:8448/phgeta/maven-repository.git')
+//    }
+//}
+
